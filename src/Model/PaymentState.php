@@ -1,6 +1,6 @@
 <?php
 
-namespace Seb\NimiqLib\Model;
+namespace HostMe\NimiqLib\Model;
 
 class PaymentState
 {

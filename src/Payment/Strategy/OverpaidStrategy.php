@@ -1,9 +1,9 @@
 <?php
 
-namespace Seb\NimiqLib\Payment\Strategy;
+namespace HostMe\NimiqLib\Payment\Strategy;
 
-use Seb\NimiqLib\Model\PaymentState;
-use Seb\NimiqLib\Model\Transaction;
+use HostMe\NimiqLib\Model\PaymentState;
+use HostMe\NimiqLib\Model\Transaction;
 
 class OverpaidStrategy implements PaymentStateStrategyInterface
 {

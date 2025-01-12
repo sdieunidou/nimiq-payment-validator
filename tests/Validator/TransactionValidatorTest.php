@@ -1,18 +1,18 @@
 <?php
 
-namespace Tests\Seb\NimiqLib\Validator;
+namespace Tests\HostMe\NimiqLib\Validator;
 
+use HostMe\NimiqLib\Exception\InvalidTransactionHashException;
+use HostMe\NimiqLib\Model\PaymentResult;
+use HostMe\NimiqLib\Model\PaymentState;
+use HostMe\NimiqLib\Model\Transaction;
+use HostMe\NimiqLib\Payment\Strategy\OverpaidStrategy;
+use HostMe\NimiqLib\Payment\Strategy\PaidStrategy;
+use HostMe\NimiqLib\Payment\Strategy\UnderpaidStrategy;
+use HostMe\NimiqLib\Validator\Gateway\ApiGatewayInterface;
+use HostMe\NimiqLib\Validator\TransactionValidator;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
-use Seb\NimiqLib\Exception\InvalidTransactionHashException;
-use Seb\NimiqLib\Model\PaymentResult;
-use Seb\NimiqLib\Model\PaymentState;
-use Seb\NimiqLib\Model\Transaction;
-use Seb\NimiqLib\Payment\Strategy\OverpaidStrategy;
-use Seb\NimiqLib\Payment\Strategy\PaidStrategy;
-use Seb\NimiqLib\Payment\Strategy\UnderpaidStrategy;
-use Seb\NimiqLib\Validator\Gateway\ApiGatewayInterface;
-use Seb\NimiqLib\Validator\TransactionValidator;
 
 /**
  * @internal

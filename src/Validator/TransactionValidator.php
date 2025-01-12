@@ -1,15 +1,15 @@
 <?php
 
-namespace Seb\NimiqLib\Validator;
+namespace HostMe\NimiqLib\Validator;
 
+use HostMe\NimiqLib\Exception\InvalidTransactionHashException;
+use HostMe\NimiqLib\Model\PaymentResult;
+use HostMe\NimiqLib\Model\PaymentState;
+use HostMe\NimiqLib\Payment\PaymentStateComputer;
+use HostMe\NimiqLib\Payment\Strategy\PaidStrategy;
+use HostMe\NimiqLib\Payment\Strategy\PaymentStateStrategyInterface;
+use HostMe\NimiqLib\Validator\Gateway\ApiGatewayInterface;
 use Psr\Log\LoggerInterface;
-use Seb\NimiqLib\Exception\InvalidTransactionHashException;
-use Seb\NimiqLib\Model\PaymentResult;
-use Seb\NimiqLib\Model\PaymentState;
-use Seb\NimiqLib\Payment\PaymentStateComputer;
-use Seb\NimiqLib\Payment\Strategy\PaidStrategy;
-use Seb\NimiqLib\Payment\Strategy\PaymentStateStrategyInterface;
-use Seb\NimiqLib\Validator\Gateway\ApiGatewayInterface;
 
 class TransactionValidator implements TransactionValidatorInterface
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Seb\NimiqLib\Validator\Gateway;
+namespace HostMe\NimiqLib\Validator\Gateway;
 
-use Seb\NimiqLib\Model\Transaction;
+use HostMe\NimiqLib\Model\Transaction;
 
 interface ApiGatewayInterface
 {

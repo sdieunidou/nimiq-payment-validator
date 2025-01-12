@@ -40,7 +40,7 @@
 Install via Composer:
 
 ```bash
-composer require seb/nimiq-payment-validator
+composer require hostme/nimiq-payment-validator
 ```
 
 ## Configuration
@@ -50,9 +50,9 @@ Configure library by setting up the API gateway, receiver address, and payment t
 ### Setting Up the Default API Gateway
 
 ```php
-use Seb\NimiqLib\Validator\Gateway\NimiqWatchApiGateway;
+use HostMe\NimiqLib\Validator\Gateway\NimiqWatchApiGateway;
 use GuzzleHttp\Client;
-use Seb\NimiqLib\Validator\TransactionValidator;
+use HostMe\NimiqLib\Validator\TransactionValidator;
 use Psr\Log\LoggerInterface;
 
 // Initialize Guzzle HTTP client
@@ -82,10 +82,10 @@ $validator = new TransactionValidator(
 You can customize the thresholds for overpaid and underpaid transactions and define custom payment strategies.
 
 ```php
-use Seb\NimiqLib\Payment\Strategy\UnderpaidStrategy;
-use Seb\NimiqLib\Payment\Strategy\OverpaidStrategy;
-use Seb\NimiqLib\Payment\Strategy\PaidStrategy;
-use Seb\NimiqLib\Payment\PaymentStateComputer;
+use HostMe\NimiqLib\Payment\Strategy\UnderpaidStrategy;
+use HostMe\NimiqLib\Payment\Strategy\OverpaidStrategy;
+use HostMe\NimiqLib\Payment\Strategy\PaidStrategy;
+use HostMe\NimiqLib\Payment\PaymentStateComputer;
 
 // Define custom thresholds
 $underpaidThreshold = 200.0; // e.g., 200 units
@@ -117,7 +117,7 @@ $validator = new TransactionValidator(
 Use the `validateTransaction` method to validate a transaction by its hash and expected amount.
 
 ```php
-use Seb\NimiqLib\Model\PaymentResult;
+use HostMe\NimiqLib\Model\PaymentResult;
 
 $transactionHash = 'ABCD1234...'; // Replace with actual transaction hash
 $expectedAmount = '500000'; // Expected amount in smallest units (e.g., uloki)
@@ -131,7 +131,7 @@ try {
     if ($paymentResult->getMessage()) {
         echo " - " . $paymentResult->getMessage();
     }
-} catch (\Seb\NimiqLib\Exception\InvalidTransactionHashException $e) {
+} catch (\HostMe\NimiqLib\Exception\InvalidTransactionHashException $e) {
     echo "Error: " . $e->getMessage();
 }
 ```
@@ -141,7 +141,7 @@ try {
 The `PaymentResult` object provides both the payment state and an optional message to explain the state.
 
 ```php
-use Seb\NimiqLib\Model\PaymentState;
+use HostMe\NimiqLib\Model\PaymentState;
 
 if ($paymentResult->getState() === PaymentState::OVERPAID) {
     echo "Payment exceeded the required amount: " . $paymentResult->getMessage();
@@ -167,7 +167,7 @@ The library categorizes transaction validation results into the following states
 ### PaymentState Class
 
 ```php
-namespace Seb\NimiqLib\Model;
+namespace HostMe\NimiqLib\Model;
 
 class PaymentState
 {
@@ -208,7 +208,7 @@ The library interacts with the Nimiq network through API gateways. By default, i
 **Implementation:**
 
 ```php
-use Seb\NimiqLib\Validator\Gateway\NimiqWatchApiGateway;
+use HostMe\NimiqLib\Validator\Gateway\NimiqWatchApiGateway;
 use GuzzleHttp\ClientInterface;
 
 // Initialize Guzzle HTTP client
@@ -233,8 +233,8 @@ $testApiGateway = new NimiqWatchApiGateway('test', null, $httpClient);
 To integrate a custom API gateway, implement the `ApiGatewayInterface`:
 
 ```php
-use Seb\NimiqLib\Validator\Gateway\ApiGatewayInterface;
-use Seb\NimiqLib\Model\Transaction;
+use HostMe\NimiqLib\Validator\Gateway\ApiGatewayInterface;
+use HostMe\NimiqLib\Model\Transaction;
 
 class CustomApiGateway implements ApiGatewayInterface
 {
@@ -266,11 +266,11 @@ $validator = new TransactionValidator(
 
 require 'vendor/autoload.php';
 
-use Seb\NimiqLib\Validator\Gateway\NimiqWatchApiGateway;
-use Seb\NimiqLib\Validator\TransactionValidator;
-use Seb\NimiqLib\Payment\Strategy\UnderpaidStrategy;
-use Seb\NimiqLib\Payment\Strategy\OverpaidStrategy;
-use Seb\NimiqLib\Payment\Strategy\PaidStrategy;
+use HostMe\NimiqLib\Validator\Gateway\NimiqWatchApiGateway;
+use HostMe\NimiqLib\Validator\TransactionValidator;
+use HostMe\NimiqLib\Payment\Strategy\UnderpaidStrategy;
+use HostMe\NimiqLib\Payment\Strategy\OverpaidStrategy;
+use HostMe\NimiqLib\Payment\Strategy\PaidStrategy;
 use GuzzleHttp\Client;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
@@ -314,7 +314,7 @@ try {
     if ($paymentResult->getMessage()) {
         echo "Message: " . $paymentResult->getMessage() . PHP_EOL;
     }
-} catch (\Seb\NimiqLib\Exception\InvalidTransactionHashException $e) {
+} catch (\HostMe\NimiqLib\Exception\InvalidTransactionHashException $e) {
     echo "Error: " . $e->getMessage() . PHP_EOL;
 }
 ```
@@ -324,10 +324,10 @@ try {
 ```php
 <?php
 
-use Seb\NimiqLib\Payment\Strategy\UnderpaidStrategy;
-use Seb\NimiqLib\Payment\Strategy\OverpaidStrategy;
-use Seb\NimiqLib\Payment\Strategy\PaidStrategy;
-use Seb\NimiqLib\Payment\PaymentStateComputer;
+use HostMe\NimiqLib\Payment\Strategy\UnderpaidStrategy;
+use HostMe\NimiqLib\Payment\Strategy\OverpaidStrategy;
+use HostMe\NimiqLib\Payment\Strategy\PaidStrategy;
+use HostMe\NimiqLib\Payment\PaymentStateComputer;
 
 // Define custom thresholds
 $underpaidThreshold = 200.0;

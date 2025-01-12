@@ -1,10 +1,10 @@
 <?php
 
-namespace Tests\Seb\NimiqLib\Model;
+namespace Tests\HostMe\NimiqLib\Model;
 
+use HostMe\NimiqLib\Model\PaymentResult;
+use HostMe\NimiqLib\Model\PaymentState;
 use PHPUnit\Framework\TestCase;
-use Seb\NimiqLib\Model\PaymentResult;
-use Seb\NimiqLib\Model\PaymentState;
 
 /**
  * @internal

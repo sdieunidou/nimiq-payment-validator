@@ -1,5 +1,5 @@
 <?php
 
-namespace Seb\NimiqLib\Exception;
+namespace HostMe\NimiqLib\Exception;
 
 class NimiqException extends \Exception {}

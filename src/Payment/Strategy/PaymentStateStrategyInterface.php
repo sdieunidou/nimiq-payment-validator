@@ -1,8 +1,8 @@
 <?php
 
-namespace Seb\NimiqLib\Payment\Strategy;
+namespace HostMe\NimiqLib\Payment\Strategy;
 
-use Seb\NimiqLib\Model\Transaction;
+use HostMe\NimiqLib\Model\Transaction;
 
 interface PaymentStateStrategyInterface
 {

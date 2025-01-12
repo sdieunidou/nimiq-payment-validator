@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Seb\NimiqLib\Model;
+namespace Tests\HostMe\NimiqLib\Model;
 
+use HostMe\NimiqLib\Model\Transaction;
 use PHPUnit\Framework\TestCase;
-use Seb\NimiqLib\Model\Transaction;
 
 /**
  * @internal

@@ -1,10 +1,10 @@
 <?php
 
-namespace Seb\NimiqLib\Validator\Gateway;
+namespace HostMe\NimiqLib\Validator\Gateway;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
-use Seb\NimiqLib\Model\Transaction;
+use HostMe\NimiqLib\Model\Transaction;
 
 class NimiqWatchApiGateway implements ApiGatewayInterface
 {

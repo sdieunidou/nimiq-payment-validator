@@ -1,15 +1,15 @@
 <?php
 
-namespace Tests\Seb\NimiqLib\Payment;
+namespace Tests\HostMe\NimiqLib\Payment;
 
+use HostMe\NimiqLib\Model\PaymentResult;
+use HostMe\NimiqLib\Model\PaymentState;
+use HostMe\NimiqLib\Model\Transaction;
+use HostMe\NimiqLib\Payment\PaymentStateComputer;
+use HostMe\NimiqLib\Payment\Strategy\OverpaidStrategy;
+use HostMe\NimiqLib\Payment\Strategy\PaidStrategy;
+use HostMe\NimiqLib\Payment\Strategy\UnderpaidStrategy;
 use PHPUnit\Framework\TestCase;
-use Seb\NimiqLib\Model\PaymentResult;
-use Seb\NimiqLib\Model\PaymentState;
-use Seb\NimiqLib\Model\Transaction;
-use Seb\NimiqLib\Payment\PaymentStateComputer;
-use Seb\NimiqLib\Payment\Strategy\OverpaidStrategy;
-use Seb\NimiqLib\Payment\Strategy\PaidStrategy;
-use Seb\NimiqLib\Payment\Strategy\UnderpaidStrategy;
 
 /**
  * @internal

@@ -1,8 +1,8 @@
 <?php
 
-namespace Seb\NimiqLib\Validator;
+namespace HostMe\NimiqLib\Validator;
 
-use Seb\NimiqLib\Model\PaymentResult;
+use HostMe\NimiqLib\Model\PaymentResult;
 
 interface TransactionValidatorInterface
 {

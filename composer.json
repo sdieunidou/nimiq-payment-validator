@@ -1,5 +1,5 @@
 {
-    "name": "seb/nimiq-payment-validator",
+    "name": "hostme/nimiq-payment-validator",
     "description": "A PHP library to interact with Nimiq cryptocurrency, focusing on transaction validation.",
     "type": "library",
     "version": "1.0.0",
@@ -16,12 +16,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Seb\\NimiqLib\\": "src/"
+            "HostMe\\NimiqLib\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Seb\\NimiqLib\\": "tests/"
+            "Tests\\HostMe\\NimiqLib\\": "tests/"
         }
     },
     "license": "MIT",

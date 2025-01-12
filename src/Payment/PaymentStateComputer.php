@@ -1,11 +1,11 @@
 <?php
 
-namespace Seb\NimiqLib\Payment;
+namespace HostMe\NimiqLib\Payment;
 
-use Seb\NimiqLib\Model\PaymentResult;
-use Seb\NimiqLib\Model\PaymentState;
-use Seb\NimiqLib\Model\Transaction;
-use Seb\NimiqLib\Payment\Strategy\PaymentStateStrategyInterface;
+use HostMe\NimiqLib\Model\PaymentResult;
+use HostMe\NimiqLib\Model\PaymentState;
+use HostMe\NimiqLib\Model\Transaction;
+use HostMe\NimiqLib\Payment\Strategy\PaymentStateStrategyInterface;
 
 class PaymentStateComputer
 {

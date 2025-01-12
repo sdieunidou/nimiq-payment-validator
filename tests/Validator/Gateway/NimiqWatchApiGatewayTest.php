@@ -1,14 +1,14 @@
 <?php
 
-namespace Tests\Seb\NimiqLib\Validator\Gateway;
+namespace Tests\HostMe\NimiqLib\Validator\Gateway;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\Response;
+use HostMe\NimiqLib\Model\Transaction;
+use HostMe\NimiqLib\Validator\Gateway\NimiqWatchApiGateway;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
-use Seb\NimiqLib\Model\Transaction;
-use Seb\NimiqLib\Validator\Gateway\NimiqWatchApiGateway;
 
 /**
  * @internal
@@ -48,8 +48,8 @@ class NimiqWatchApiGatewayTest extends TestCase
             'extra' => ['key' => 'value'],
         ];
 
-        $responseBody = json_encode($apiResponseData);
-        $response = new Response(200, ['Content-Type' => 'application/json'], $responseBody);
+        $responHostMeody = json_encode($apiResponseData);
+        $response = new Response(200, ['Content-Type' => 'application/json'], $responHostMeody);
 
         $this->httpClient->expects($this->once())
             ->method('request')
@@ -121,8 +121,8 @@ class NimiqWatchApiGatewayTest extends TestCase
     public function testGetTransactionByHashMalformedJson(): void
     {
         $transactionHash = 'abcdef1234567890abcdef1234567890abcdef12';
-        $responseBody = 'Invalid JSON';
-        $response = new Response(200, ['Content-Type' => 'application/json'], $responseBody);
+        $responHostMeody = 'Invalid JSON';
+        $response = new Response(200, ['Content-Type' => 'application/json'], $responHostMeody);
 
         $this->httpClient->expects($this->once())
             ->method('request')
@@ -162,8 +162,8 @@ class NimiqWatchApiGatewayTest extends TestCase
             'extra' => null,
         ];
 
-        $responseBody = json_encode($apiResponseData);
-        $response = new Response(200, ['Content-Type' => 'application/json'], $responseBody);
+        $responHostMeody = json_encode($apiResponseData);
+        $response = new Response(200, ['Content-Type' => 'application/json'], $responHostMeody);
 
         $this->httpClient->expects($this->once())
             ->method('request')
