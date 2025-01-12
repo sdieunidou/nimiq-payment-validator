@@ -1,0 +1,8 @@
+composer.lock
+composer.phar
+.php-cs-fixer.cache
+app.log
+php-cs-fixer-v3.phar
+vendor
+index.php
+
