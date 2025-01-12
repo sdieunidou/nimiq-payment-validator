@@ -9,9 +9,12 @@ class OverpaidStrategy implements PaymentStateStrategyInterface
 {
     private float $overpaidThreshold;
 
-    public function __construct(float $overpaidThreshold)
+    private int $minConfirmations;
+
+    public function __construct(float $overpaidThreshold, int $minConfirmations = 120)
     {
         $this->overpaidThreshold = $overpaidThreshold;
+        $this->minConfirmations = $minConfirmations;
     }
 
     public function matches(float $expectedAmount, Transaction $transaction): bool
@@ -19,7 +22,8 @@ class OverpaidStrategy implements PaymentStateStrategyInterface
         $transactionValue = $transaction->getValueWithDigits();
 
         return $transactionValue > $expectedAmount
-            && ($transactionValue <= $expectedAmount + $this->overpaidThreshold);
+            && ($transactionValue <= $expectedAmount + $this->overpaidThreshold)
+            && $transaction->getConfirmations() >= $this->minConfirmations;
     }
 
     public function getState(): string

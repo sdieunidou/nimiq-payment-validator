@@ -60,7 +60,8 @@ class NimiqWatchApiGateway implements ApiGatewayInterface
                     $data['message'] ?? '',
                     $data['block_height'],
                     $data['timestamp'],
-                    $data['extra'] ?? null
+                    $data['extra'] ?? null,
+                    $data['confirmations'] ?? 0
                 );
             }
 

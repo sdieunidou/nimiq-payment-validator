@@ -7,9 +7,17 @@ use HostMe\NimiqLib\Model\Transaction;
 
 class PaidStrategy implements PaymentStateStrategyInterface
 {
+    private int $minConfirmations;
+
+    public function __construct(int $minConfirmations = 120)
+    {
+        $this->minConfirmations = $minConfirmations;
+    }
+
     public function matches(float $expectedAmount, Transaction $transaction): bool
     {
-        return $expectedAmount === $transaction->getValueWithDigits();
+        return $expectedAmount === $transaction->getValueWithDigits()
+        && $transaction->getConfirmations() >= $this->minConfirmations;
     }
 
     public function getState(): string

@@ -9,9 +9,12 @@ class UnderpaidStrategy implements PaymentStateStrategyInterface
 {
     private float $underpaidThreshold;
 
-    public function __construct(float $underpaidThreshold)
+    private int $minConfirmations;
+
+    public function __construct(float $underpaidThreshold, int $minConfirmations = 120)
     {
         $this->underpaidThreshold = $underpaidThreshold;
+        $this->minConfirmations = $minConfirmations;
     }
 
     public function matches(float $expectedAmount, Transaction $transaction): bool
@@ -19,7 +22,8 @@ class UnderpaidStrategy implements PaymentStateStrategyInterface
         $transactionValue = $transaction->getValueWithDigits();
 
         return $transactionValue < $expectedAmount
-            && ($transactionValue >= $expectedAmount - $this->underpaidThreshold);
+            && ($transactionValue >= $expectedAmount - $this->underpaidThreshold)
+            && $transaction->getConfirmations() >= $this->minConfirmations;
     }
 
     public function getState(): string

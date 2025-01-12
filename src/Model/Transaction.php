@@ -12,10 +12,8 @@ class Transaction
     private int $height;
     private int $timestamp;
     private ?array $extra;
+    private int $confirmations;
 
-    /**
-     * Constructor.
-     */
     public function __construct(
         string $hash,
         string $senderAddress,
@@ -24,7 +22,8 @@ class Transaction
         string $message,
         int $height,
         int $timestamp,
-        ?array $extra = null
+        ?array $extra = null,
+        int $confirmations = 0
     ) {
         $this->hash = $hash;
         $this->senderAddress = $senderAddress;
@@ -34,6 +33,7 @@ class Transaction
         $this->height = $height;
         $this->timestamp = $timestamp;
         $this->extra = $extra;
+        $this->confirmations = $confirmations;
     }
 
     /**
@@ -103,5 +103,10 @@ class Transaction
     public function getExtra(): ?array
     {
         return $this->extra;
+    }
+
+    public function getConfirmations(): int
+    {
+        return $this->confirmations;
     }
 }
