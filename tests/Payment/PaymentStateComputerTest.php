@@ -25,12 +25,26 @@ class PaymentStateComputerTest extends TestCase
     protected function setUp(): void
     {
         $strategies = [
-            new UnderpaidStrategy($this->underpaidThreshold),
-            new OverpaidStrategy($this->overpaidThreshold),
-            new PaidStrategy(),
+            new UnderpaidStrategy($this->underpaidThreshold, 0),
+            new OverpaidStrategy($this->overpaidThreshold, 0),
+            new PaidStrategy(120),
         ];
 
         $this->computer = new PaymentStateComputer($strategies);
+    }
+
+    public function testDeterminePaymentStatePaidWithoutConfirmation(): void
+    {
+        $expectedAmount = 5.0;
+        $transaction = $this->createMock(Transaction::class);
+        $transaction->method('getValueWithDigits')->willReturn(5.0);
+        $transaction->method('getConfirmations')->willReturn(10);
+
+        $paymentResult = $this->computer->determinePaymentState($expectedAmount, $transaction);
+
+        $this->assertInstanceOf(PaymentResult::class, $paymentResult);
+        $this->assertSame(PaymentState::FAILED, $paymentResult->getState());
+        $this->assertNull($paymentResult->getMessage());
     }
 
     public function testDeterminePaymentStatePaid(): void
@@ -38,6 +52,7 @@ class PaymentStateComputerTest extends TestCase
         $expectedAmount = 5.0;
         $transaction = $this->createMock(Transaction::class);
         $transaction->method('getValueWithDigits')->willReturn(5.0);
+        $transaction->method('getConfirmations')->willReturn(150);
 
         $paymentResult = $this->computer->determinePaymentState($expectedAmount, $transaction);
 

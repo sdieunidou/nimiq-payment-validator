@@ -19,7 +19,7 @@ class UnderpaidStrategyTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->strategy = new UnderpaidStrategy($this->underpaidThreshold);
+        $this->strategy = new UnderpaidStrategy($this->underpaidThreshold, 0);
     }
 
     public function testMatchesWithinThreshold(): void

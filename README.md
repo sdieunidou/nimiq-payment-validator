@@ -93,9 +93,9 @@ $overpaidThreshold = 200.0;  // e.g., 200 units
 
 // Initialize payment strategies
 $strategies = [
-    new UnderpaidStrategy($underpaidThreshold),
-    new OverpaidStrategy($overpaidThreshold),
-    new PaidStrategy(),
+    new UnderpaidStrategy($underpaidThreshold, 120),
+    new OverpaidStrategy($overpaidThreshold, 120),
+    new PaidStrategy(120), // 120 => Min Confirmations
 ];
 
 // Initialize PaymentStateComputer with custom strategies
@@ -288,9 +288,9 @@ $underpaidThreshold = 100.0; // e.g., 100 units
 $overpaidThreshold = 100.0;  // e.g., 100 units
 
 $strategies = [
-    new UnderpaidStrategy($underpaidThreshold),
-    new OverpaidStrategy($overpaidThreshold),
-    new PaidStrategy(),
+    new UnderpaidStrategy($underpaidThreshold, 120),
+    new OverpaidStrategy($overpaidThreshold, 120),
+    new PaidStrategy(120),
 ];
 
 // Initialize Transaction Validator
@@ -335,9 +335,9 @@ $overpaidThreshold = 200.0;
 
 // Initialize custom strategies
 $strategies = [
-    new UnderpaidStrategy($underpaidThreshold),
-    new OverpaidStrategy($overpaidThreshold),
-    new PaidStrategy(),
+    new UnderpaidStrategy($underpaidThreshold, 120),
+    new OverpaidStrategy($overpaidThreshold, 120),
+    new PaidStrategy(120),
 ];
 
 // Initialize PaymentStateComputer

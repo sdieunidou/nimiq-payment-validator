@@ -23,6 +23,7 @@ class TransactionTest extends TestCase
         $height = 123456;
         $timestamp = 1672531200;
         $extra = ['key' => 'value'];
+        $confirmations = 155;
 
         // Act
         $transaction = new Transaction(
@@ -33,7 +34,8 @@ class TransactionTest extends TestCase
             $message,
             $height,
             $timestamp,
-            $extra
+            $extra,
+            $confirmations
         );
 
         // Assert
@@ -45,6 +47,7 @@ class TransactionTest extends TestCase
         $this->assertSame($height, $transaction->getHeight());
         $this->assertSame($timestamp, $transaction->getTimestamp());
         $this->assertSame($extra, $transaction->getExtra());
+        $this->assertSame($confirmations, $transaction->getConfirmations());
 
         $this->assertSame(5.0, $transaction->getValueWithDigits());
     }
@@ -60,6 +63,7 @@ class TransactionTest extends TestCase
         $height = 123457;
         $timestamp = 1672531300;
         $extra = null;
+        $confirmations = 155;
 
         // Act
         $transaction = new Transaction(
@@ -70,7 +74,8 @@ class TransactionTest extends TestCase
             $message,
             $height,
             $timestamp,
-            $extra
+            $extra,
+            $confirmations
         );
 
         // Assert
@@ -82,6 +87,7 @@ class TransactionTest extends TestCase
         $this->assertSame($height, $transaction->getHeight());
         $this->assertSame($timestamp, $transaction->getTimestamp());
         $this->assertNull($transaction->getExtra());
+        $this->assertSame($confirmations, $transaction->getConfirmations());
 
         $this->assertSame(7.5, $transaction->getValueWithDigits());
     }

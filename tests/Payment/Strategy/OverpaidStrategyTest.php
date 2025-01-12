@@ -19,7 +19,7 @@ class OverpaidStrategyTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->strategy = new OverpaidStrategy($this->overpaidThreshold);
+        $this->strategy = new OverpaidStrategy($this->overpaidThreshold, 0);
     }
 
     public function testMatchesWithinThreshold(): void

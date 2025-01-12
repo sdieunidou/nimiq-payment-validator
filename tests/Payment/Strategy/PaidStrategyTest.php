@@ -18,7 +18,7 @@ class PaidStrategyTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->strategy = new PaidStrategy();
+        $this->strategy = new PaidStrategy(0);
     }
 
     public function testMatchesExactAmount(): void

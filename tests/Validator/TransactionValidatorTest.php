@@ -35,9 +35,9 @@ class TransactionValidatorTest extends TestCase
         $this->overpaidThreshold = 50000.0;
 
         $this->strategies = [
-            new UnderpaidStrategy($this->underpaidThreshold),
-            new OverpaidStrategy($this->overpaidThreshold),
-            new PaidStrategy(),
+            new UnderpaidStrategy($this->underpaidThreshold, 0),
+            new OverpaidStrategy($this->overpaidThreshold, 0),
+            new PaidStrategy(0),
         ];
 
         $this->validator = new TransactionValidator(
