@@ -2,7 +2,6 @@
     "name": "hostme/nimiq-payment-validator",
     "description": "A PHP library to interact with Nimiq cryptocurrency, focusing on transaction validation.",
     "type": "library",
-    "version": "1.0.0",
     "require": {
         "php": ">=8.0",
         "guzzlehttp/guzzle": "^7.0",
